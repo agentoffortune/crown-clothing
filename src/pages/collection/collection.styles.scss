@@ -16,4 +16,12 @@
       margin-bottom: 30px;
     }
   }
+
+  @media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .items {
+    grid-template-columns: 1fr;
+  }
 }
+}
+
