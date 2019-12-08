@@ -7,7 +7,7 @@ import PreviewCollection from "../../components/preview-collection/preview-colle
 
 
 const CollectionsOverview = ({ collections }) => {
-    console.log(collections);
+    
     return(
     <div className="collections-overview">
     {

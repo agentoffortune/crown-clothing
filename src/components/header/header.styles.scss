@@ -7,8 +7,16 @@
 
   .logo-container {
     height: 100%;
-    width: 70px;
+    width: 300px;
     padding: 25px;
+    font-size: 32px;
+    font-weight: bold;
+    text-decoration: none;
+
+    &:hover {
+      transform: scale(1.1);
+      transition: transform 1s ease-in-out;
+    }
   }
 
   .options {
@@ -26,5 +34,10 @@
       color: blue;
       text-decoration: underline;
     }
+  }
+
+  .logo {
+    float: left;
+    margin-right: 10px;
   }
 }

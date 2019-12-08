@@ -5,11 +5,11 @@ import "./collection.styles.scss";
 import CollectionItem from "../../components/collection-item/collection-item.component";
 
 const CollectionPage = ({ match, collection }) => {
-    console.log(match);
+    
     const { title, items } = collection;
     return (
     <div className="collection-page">
-        <h2 className="title">{ title }</h2>
+        <h2 className="title">{ title.toUpperCase() }</h2>
         <div className="items">
         {
             items.map(item => (
