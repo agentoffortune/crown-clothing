@@ -13,7 +13,7 @@ export const TitleContainer = styled.div`
 
 export const PreviewContainer = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 1rem;
     grid-auto-flow: dense;
 `;
