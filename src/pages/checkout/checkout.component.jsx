@@ -4,40 +4,40 @@ import { createStructuredSelector } from "reselect";
 import CheckoutItem from "../../components/checkout-item/checkout-item.component";
 import { selectCartItems, selectCartTotal } from "../../redux/cart/cart.selectors";
 import StripeCheckoutButton from "../../components/stripe-button/stripe-button.component";
-import "./checkout.styles.scss";
+import { CheckoutPageContainer, CheckoutHeaderContainer, HeaderBlock, TotalContainer, TestWarningContainer } from "./checkout.styles";
 
 const CheckoutPage = ({cartItems, total }) => {
     return (
-        <div className="checkout-page">
-            <div className="checkout-header">
-                <div className="header-block">
+        <CheckoutPageContainer>
+            <CheckoutHeaderContainer>
+                <HeaderBlock>
                 <span>Product</span>
-                </div>
-                <div className="header-block">
+                </HeaderBlock>
+                <HeaderBlock>
                 <span>Description</span>
-                </div>
-                <div className="header-block">
+                </HeaderBlock>
+                <HeaderBlock>
                 <span>Quantity</span>
-                </div>
-                <div className="header-block">
+                </HeaderBlock>
+                <HeaderBlock>
                 <span>Price</span>
-                </div>
-                <div className="header-block">
+                </HeaderBlock>
+                <HeaderBlock>
                 <span>Remove</span>
-                </div>
-            </div>
+                </HeaderBlock>
+            </CheckoutHeaderContainer>
             {
                 cartItems.map(cartItem => 
                     (<CheckoutItem key={cartItem.id} cartItem={cartItem} />)
                 )
             }
-            <div className="total">TOTAL: ${total}</div>
-            <div className="test-warning">
+            <TotalContainer>TOTAL: ${total}</TotalContainer>
+            <TestWarningContainer>
             *Please use the Following Card Information for Payment*<br />
             Card: 4242424242424242 Expiry: 01/24 CCV: 123
-            </div>
+            </TestWarningContainer>
             <StripeCheckoutButton price={total}/>
-        </div>
+        </CheckoutPageContainer>
         
     )
 }

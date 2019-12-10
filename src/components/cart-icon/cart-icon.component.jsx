@@ -1,6 +1,6 @@
 import React from "react";
 import { ReactComponent as ShoppingIcon } from "../../assets/shopping-bag.svg";
-import "./cart-icon.styles.scss";
+import { CartIconContainer, ItemCountContainer } from "./cart-icon.styles";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { toggleCartHidden } from "../../redux/cart/cart.actions";
@@ -8,10 +8,10 @@ import { selectCartItemsCount } from "../../redux/cart/cart.selectors";
 
 const CartIcon = ({ toggleCartHidden, itemCount }) => {
     return (
-        <div className="cart-icon" onClick={toggleCartHidden}>
-            <ShoppingIcon className="shopping-icon" />
-            <span className="item-count">{itemCount}</span>
-        </div>
+        <CartIconContainer onClick={toggleCartHidden}>
+        <ShoppingIcon style={{height: "24px", width: "24px"}} />
+            <ItemCountContainer>{itemCount}</ItemCountContainer>
+        </CartIconContainer>
     )
 }
 

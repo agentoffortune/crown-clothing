@@ -10,7 +10,7 @@ import Header from "./components/header/header.component";
 import CheckoutPage from "./pages/checkout/checkout.component";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component"
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
-import './App.css';
+import GlobalStyle from './App.styles';
 
 
 class App extends React.Component {
@@ -34,6 +34,7 @@ class App extends React.Component {
         
       } else {
         setCurrentUser(userAuth);
+
       }
       
     })
@@ -46,6 +47,7 @@ class App extends React.Component {
   render () {
     return (
     <div>
+    <GlobalStyle />
     <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />

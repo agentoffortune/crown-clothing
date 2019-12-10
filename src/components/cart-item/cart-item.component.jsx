@@ -1,15 +1,15 @@
 import React from "react";
-import "./cart-item.styles.scss";
+import { CartItemContainer, ItemDetailsContainer, NameContainer, PriceContainer } from "./cart-item.styles";
 
 const CartItem = ({item: { imageUrl, name, price, quantity }}) => {
     return (
-        <div className="cart-item">
-            <img src={imageUrl} alt="item" />
-            <div className="item-details">
-                <span className="name">{name}</span>
-                <span className="price">{quantity} x ${price}</span>
-            </div>
-        </div>
+        <CartItemContainer>
+            <img src={imageUrl} alt="item" style={{width: "30%"}} />
+            <ItemDetailsContainer>
+                <NameContainer>{name}</NameContainer>
+                <PriceContainer>{quantity} x ${price}</PriceContainer>
+            </ItemDetailsContainer>
+        </CartItemContainer>
     );
 }
 
