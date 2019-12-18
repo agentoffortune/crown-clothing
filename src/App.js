@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { selectCurrentUser } from './redux/users/user.selectors';
@@ -12,20 +12,11 @@ import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up
 import GlobalStyle from './App.styles';
 
 
-class App extends React.Component {
-  
-  unsubscribeFromAuth = null;
-
-  componentDidMount() {
-    const { checkUserSession } = this.props;
+const App = ({ checkUserSession, currentUser }) => {
+  useEffect(() => {
     checkUserSession();
-  }
-
-  componentWillUnmount() {
-    this.unsubscribeFromAuth();
-  }
-
-  render () {
+  }, [checkUserSession])
+ 
     return (
     <div>
     <GlobalStyle />
@@ -35,7 +26,7 @@ class App extends React.Component {
         <Route path="/shop" component={ShopPage} />
         <Route exact path="/checkout" component={CheckoutPage} />
         <Route exact path="/signin" render={() => 
-          this.props.currentUser ?
+          currentUser ?
             (<Redirect to='/' />) 
           :
             (<SignInAndSignUpPage />)
@@ -44,7 +35,7 @@ class App extends React.Component {
       </Switch>
     </div>
   );
-  }
+  
   
 }
 
